@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "81ee8f97-04dd-4e4d-a1e8-b63b40b097b7",
+		"name": "1.6. Тестирование серым ящиком, через API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26924516"
+	},
+	"item": [
+		{
+			"name": "Получение списка товаров",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "iamfinallytester",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "skillboxadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://intershop3.skillbox.ru/api/products",
+					"protocol": "http",
+					"host": [
+						"intershop3",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение карточки конкретного товара",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "iamfinallytester",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "skillboxadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://intershop3.skillbox.ru/api/products/421594",
+					"protocol": "http",
+					"host": [
+						"intershop3",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"api",
+						"products",
+						"421594"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание карточки товара",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "iamfinallytester",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "skillboxadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": string,  // наименование товара\r\n\"slug\": string, // permalink на товар\r\n\"manage_stock\": bool, // флаг управляющий остатками\r\n\"stock_quantity\": int, // количество товаров на складе\r\n\"description\": string, // описание товара\r\n\"price\": int, // цена за товар\r\n\"regular_price\": int, // цена без скидки\r\n\"sale_price\": int, // цена с учетом скидки\r\n\r\n\t{\r\n\t\t\"id\": int, // идентификационный номер категории\r\n\t\t\"name\": string, // название категории\r\n\t\t\"slug\": string // permalink на группу\r\n\t}]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://intershop3.skillbox.ru/api/products",
+					"protocol": "http",
+					"host": [
+						"intershop3",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование карточки товара",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "iamfinallytester",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "skillboxadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"мороженре\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://intershop3.skillbox.ru/api/products/421594",
+					"protocol": "http",
+					"host": [
+						"intershop3",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"api",
+						"products",
+						"421594"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление карточки товара",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://intershop3.skillbox.ru/api/products/421594",
+					"protocol": "http",
+					"host": [
+						"intershop3",
+						"skillbox",
+						"ru"
+					],
+					"path": [
+						"api",
+						"products",
+						"421594"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
